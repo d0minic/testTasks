@@ -1,0 +1,31 @@
+<!--Cоздать 3 кнопки с названиями 1, 2, 3, расположенные друг над другом (HTML + JQuery).
+ При нажатии на любую кнопку происходит смена имен кнопок (231, 312, 123), т. е. Верхней кнопке присваивается имя последующей и последней имя первой.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-1.12.3.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.but').click(function () {
+                $('.but').each(function () {
+                    var currentVal = $(this).val();
+
+                    if (currentVal == $('.but').length) { currentVal = 0; }
+
+                    var newVal = parseInt(currentVal) + 1;
+
+                    $(this).prop('value', newVal);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type='button' name='1' value='1' class='but'/><br/>
+    <input type='button' name='2' value='2' class='but'/><br/>
+    <input type='button' name='3' value='3' class='but'/><br/>
+</body>
+</html>
